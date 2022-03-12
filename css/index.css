@@ -31,7 +31,8 @@ body{
     font-size: 60px;
 }
 .image-part{
-    margin-top: -100px;
+    margin-top: -150px;
+    /* background-image: url(../image/bg-intro-desktop.svg); */
 }
 .img{
    height: 80%;
@@ -44,12 +45,62 @@ body{
     background-color: #F3F4F6;
     border: none;
 }
-@media (max-width: 700px) {
-    .b1{
-        display: none;
+.third .card{
+    border-radius: 10px;
+    margin-left: 10px;
+    width: 100%;
+}
+.card-head, .card-head img{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    height: 30vh;
+}
+.third a{
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 20px;
+}
+.third p{
+    font-size: 12px;
+}
+a:hover{
+    color: #77D29B !important;
+}
+.footer{
+    background-color: #2D314D;
+}
+.footer a{
+    text-decoration: none;
+    font-size: 17px;
+    cursor: pointer;
+}
+footer p{
+    font-size: 12px;
+    text-align: right;
+}
+footer .fa{
+    font-size: 35px;
+}
+footer .fa:hover{
+    color: #77D29B !important;
+}
+footer button{
+    margin-left: 70px;
+}
+.fas div{
+    margin-left: 6px;
+    cursor: pointer;
+}
+@media (max-width: 768px) {
+    nav .b1{
+        display: none !important;
     }
-    .d-flex{
+    .first .d-flex{
         flex-direction: column-reverse;
+    }
+    .btn{
+        height: 40px;
+        width: 60%;
     }
     .first .text{
         font-size: 20px;
@@ -59,8 +110,10 @@ body{
         margin-top: -2px;
     }
     .image-part{
-        margin-top: -50pxpx;
+        margin-top: -50px;
+        margin-left: 0px;
         width: 100% !important;
+        background-image: url(../image/bg-intro-mobile.svg);
     }
     .image-part img{
         height: 100%;
@@ -68,11 +121,52 @@ body{
         display: block;
         margin: auto;
     }
+    .card{
+        width: 100%;
+    }
     .second{
         background-color: #F3F4F6;
         margin-top: 0px;
+        padding: 0%;
     }
     .second .card{
+        margin-top: 0px !important;
+    }
+    .second .card-body{
+        text-align: center;
+    }
+    
+    .second .d-flex, .third .d-flex{
+        flex-direction: column;
+    }
+    .third .card{
+        margin-top: 10px;
+        margin-left: 0px;
+    }
+    .card-head, .card-head img{
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        height: 20vh;
+    }
+    .footer{
+        text-align: center;
+    }
+    footer p{
+        text-align: center;
+    }
+    footer button{
+        margin-left: 0px;
+        margin-top: 2px
+    }
+    footer .fa{
+        font-size: 20px;
+        /* margin: 5px; */
+    }
+    .fas{
+        width: 40%;
+        margin: auto;
+    }
+    .fInt{
         margin-top: 0px !important;
     }
 }
