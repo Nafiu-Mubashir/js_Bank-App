@@ -21,48 +21,6 @@
     top: 56px;
     color: black !important;
 }
-body{
-    background-color: #FAFAFA;
-}
-.text-part{
-    margin-top: 80px;
-}
-.first .text{
-    font-size: 65px;
-}
-.image-part{
-    margin-top: -150px;
-    /* background-image: url(../image/bg-intro-desktop.svg); */
-}
-.img{
-   height: 80%;
-}
-.second{
-    background-color: #F3F4F6;
-    margin-top: -300px;
-}
-.second .card{
-    background-color: #F3F4F6;
-    border: none;
-}
-.third .card{
-    border-radius: 10px;
-    margin-left: 10px;
-    width: 100%;
-}
-.card-head, .card-head img{
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    height: 30vh;
-}
-.third a{
-    text-decoration: none;
-    cursor: pointer;
-    font-size: 20px;
-}
-.third p{
-    font-size: 12px;
-}
 a:hover{
     color: #77D29B !important;
 }
@@ -91,62 +49,53 @@ footer button{
     margin-left: 6px;
     cursor: pointer;
 }
+.text{
+    color: #77D29B !important;
+}
+.form-control{
+    box-shadow: .5px .5px 1px 1px #E6E3E7;
+    outline: none;
+    outline-color: #77D29B;
+    border-color: #77D29B;
+}
+.form-control:focus { 
+    outline: none !important;
+    border-color: #77D29B !important;
+    box-shadow: 0 0 0px #77D29B !important;
+}
+.form-control:hover{
+    box-shadow: 0 0 15px #77D29B !important;
+    transition: all 0.3s ease-in-out;
+}
+.card{
+    box-shadow: .5px .5px 1px 1px;
+    border-radius: 10px;
+    border: none;
+    color: #77D29B !important;
+    width: 45%;
+}
+
+
 @media (max-width: 768px) {
-    .b1,.b2{
+    .b2{
         display: none !important;
-    }
-    .first .d-flex{
-        flex-direction: column-reverse;
     }
     .btn{
         height: 40px;
         width: 60%;
     }
-    .first .text{
-        font-size: 20px;
-    }
-    .text-part{
-        width: 100% !important;
-        margin-top: -2px;
-    }
-    .image-part{
-        margin-top: -50px;
-        margin-left: 0px;
-        width: 100% !important;
-        background-image: url(../image/bg-intro-mobile.svg);
-    }
-    .image-part img{
-        height: 100%;
-        width: 100%;
-        display: block;
-        margin: auto;
-    }
     .card{
-        width: 100%;
+        width: 100% !important;
     }
-    .second{
-        background-color: #F3F4F6;
-        margin-top: 0px;
-        padding: 0%;
+    section{
+        padding: none;
     }
-    .second .card{
-        margin-top: 0px !important;
-    }
-    .second .card-body{
-        text-align: center;
-    }
-    
-    .second .d-flex, .third .d-flex{
+    section .d-flex{
         flex-direction: column;
     }
-    .third .card{
-        margin-top: 10px;
-        margin-left: 0px;
-    }
-    .card-head, .card-head img{
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-        height: 20vh;
+    .inp{
+        width: 100% !important;
+        margin-left: 0px !important;
     }
     .footer{
         text-align: center;
