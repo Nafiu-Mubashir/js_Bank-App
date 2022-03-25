@@ -1,0 +1,143 @@
+.btn{
+    border-radius: 35px;
+    height: 50px;
+    width: 200px;
+    background: linear-gradient(90deg, hsl(133, 65%, 51%), hsl(192, 70%, 51%));
+    border: none;
+}
+.btn:hover {
+    background: linear-gradient(90deg, hsl(133, 65%, 65%), hsl(192, 70%, 65%));
+}
+.nav-link{
+    position: relative;
+    text-align: center;
+}
+.nav-link:hover::before{
+    content: "";
+    position: absolute;
+    background: linear-gradient(90deg, hsl(133, 65%, 51%), hsl(192, 70%, 51%));
+    height: 5px;
+    width: 100%;
+    top: 56px;
+    color: black !important;
+}
+a:hover{
+    color: #77D29B !important;
+}
+.footer{
+    background-color: #2D314D;
+}
+.footer a{
+    text-decoration: none;
+    font-size: 17px;
+    cursor: pointer;
+}
+footer p{
+    font-size: 12px;
+    text-align: right;
+}
+footer .fa{
+    font-size: 35px;
+}
+footer .fa:hover{
+    color: #77D29B #77D29B !important;
+}
+footer button{
+    margin-left: 70px;
+}
+.fas div{
+    margin-left: 6px;
+    cursor: pointer;
+}
+.text{
+    color: #77D29B !important;
+}
+.form-control{
+    box-shadow: .5px .5px 1px 1px #E6E3E7;
+    outline: none;
+    outline-color: #77D29B;
+    border-color: #77D29B;
+}
+.form-control:focus { 
+    outline: none !important;
+    border-color: #77D29B !important;
+    box-shadow: 0 0 0px #77D29B !important;
+}
+.form-control:hover{
+    box-shadow: 0 0 15px #77D29B !important;
+    transition: all 0.3s ease-in-out;
+}
+.card{
+    /* box-shadow: .5px .5px 1px 1px;
+    border-radius: 10px; */
+    border: none;
+    color: #77D29B !important;
+    width: 45%;
+    margin-top: -70px !important;
+}
+.image{
+    width: 99vw;
+    margin-left: -20px;
+    margin-top: -230px;
+}
+
+
+@media (max-width: 768px) {
+    .b2{
+        display: none !important;
+    }
+    .btn{
+        height: 40px;
+        width: 60%;
+    }
+    .card{
+        width: 100% !important;
+        margin-top: -50px !important;
+    }
+    section{
+        padding: none;
+    }
+    section .d-flex{
+        flex-direction: column;
+    }
+    .inp{
+        width: 100% !important;
+        margin-left: 0px !important;
+    }
+    .footer{
+        text-align: center;
+    }
+    footer p{
+        text-align: center;
+    }
+    footer button{
+        margin-left: 0px;
+        margin-top: 2px
+    }
+    footer .fa{
+        font-size: 20px;
+        /* margin: 5px; */
+    }
+    .fas{
+        width: 40%;
+        margin: auto;
+    }
+    .links a{
+        font-size: 12px;
+    }
+    .fInt{
+        margin-top: 0px !important;
+    }
+    .ca{
+        margin-top: 10px;
+    }
+    .nav-link:hover::before{
+        content: none;
+        color: black !important;
+    }
+    .image{
+        width: 100vw;
+        margin-left: -20px;
+        margin-top: -20px;
+    }
+}
