@@ -1,4 +1,4 @@
-let allCurrentUsers = [];
+// let allCurrentUsers = [];
 let myLocalStorage = JSON.parse(localStorage.getItem("bankCustomers"))
 function signIn() {
     let currentUsers = {
@@ -8,10 +8,11 @@ function signIn() {
     }
     let myCurrentUser = myLocalStorage.find((val, _) => val.emails == eml.value && val.passwords == pwd.value && val.category == currentUsers.category)
     if (myCurrentUser) {
-        allCurrentUsers.push(myCurrentUser);
-        all = JSON.stringify(allCurrentUsers);
+        // allCurrentUsers.push(myCurrentUser);
+        all = JSON.stringify(myCurrentUser);
+        console.log(myCurrentUser);
         localStorage.setItem("currentUsers", all);
-        // location.href = "dashboard.html";
+        location.href = "dashboard.html";
     }
     else {
         errors.innerText = "Incorrect password or email";

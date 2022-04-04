@@ -29,4 +29,5 @@ function signUp() {
     console.log(allUsers);
     all = JSON.stringify(allUsers);
     localStorage.setItem("bankCustomers", all);
+    location.href = "signIn.html";
 }

@@ -29,42 +29,42 @@
         </div>
         <ul type="none" class="nav_list">
             <li class="active_link">
-                <a href="dashboard.html" class="link">
+                <a href="#" class="link">
                     <i class="fa fa-home"></i>
                     <span class="links_name"> Dashboard</span>
                 </a>
                 <span class="tooltip">Dashboard</span>
             </li>
             <li>
-                <a href="profile.html" class="link">
+                <a href="#" class="link">
                     <i class="fa fa-user"></i>
                     <span class="links_name"> Profile</span>
                 </a>
                 <span class="tooltip">Profile</span>
             </li>
             <li>
-                <a href="transactions.html" class="link">
+                <a href="#" class="link">
                     <i class="fa fa-chart-line"></i>
                     <span class="links_name"> Transactions</span>
                 </a>
                 <span class="tooltip">Transactions</span>
             </li>
             <li>
-                <a href="transfer.html" class="link">
+                <a href="#" class="link">
                     <i class="fa fa-paper-plane"></i>
                     <span class="links_name"> Transfer</span>
                 </a>
                 <span class="tooltip">Transfer</span>
             </li>
             <li>
-                <a href="deposit.html" class="link">
+                <a href="#" class="link">
                     <i class="fa fa-coins"></i>
                     <span class="links_name"> Fund Acct</span>
                 </a>
                 <span class="tooltip">Fund Acct</span>
             </li>
             <li>
-                <a href="withdraw.html" class="link">
+                <a href="#" class="link">
                     <i class="fa fa-wallet"></i>
                     <span class="links_name"> Withdarw</span>
                 </a>
@@ -113,23 +113,48 @@
         <div class="h-100 p-2">
             <div class="container-fluid">
                 <p class="text-success" id="acctName"></p>
-                <div class="d-flex justify-content-between first_cards">
-                    <div class="card w-25 CardBalance">
-                        <div class="card-body">
-                            <p class="texts" id="acctNo"></p>
-                            <div>
-                                <h3 class="text-center mt-5 text" id="acctBal"></h3>
+                <div class="card w-50 m-auto">
+                    <div class="card-body">
+                        <div class="form">
+                            <h3>Sign Up</h3>
+                            <div class="form-group mt-3">
+                                <!-- <label for="" class="form-label">First Name:</label> -->
+                                <input type="text" name="" class="form-control" placeholder="First Name" id="fn" required>
                             </div>
-                        </div>
-                    </div>
-                    <div class="card w-25">
-                        <div class="card-body">
-                            <h5>Card 2</h5>
-                        </div>
-                    </div>
-                    <div class="card w-25 cardAtm">
-                        <div class="card-body">
-                            <h5>Card 3</h5>
+                            <div class="form-group mt-3">
+                                <!-- <label for="" class="form-label">Last Name:</label> -->
+                                <input type="text" name="" class="form-control" placeholder="Last Name" id="ln" required>
+                            </div>
+                            <div class="form-group mt-3">
+                                <!-- <label for="" class="form-label">Email Address:</label> -->
+                                <input type="email" name="" class="form-control" placeholder="Email Address" id="em"
+                                    required>
+                            </div>
+                            <div class="form-group mt-3">
+                                <!-- <label for="" class="form-label">Phone Number:</label> -->
+                                <input type="number" name="" class="form-control" placeholder="Phone Number" id="pn"
+                                    required>
+                            </div>
+                            <div class="form-group mt-3">
+                                <select class="form-select" aria-label="Default select example" id="gd">
+                                    <option selected disabled>Gender</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="others">Others</option>
+                                </select>
+                            </div>
+                            <div class="form-group mt-3">
+                                <!-- <label for="" class="form-label">Password:</label> -->
+                                <input type="password" name="" class="form-control" placeholder="Password" id="ps" required>
+                            </div>
+                            <div class="form-group mt-3">
+                                <!-- <label for="" class="form-label">Confirm Password:</label> -->
+                                <input type="password" name="" class="form-control" placeholder="Confirm Password" id="pss"
+                                    required>
+                            </div>
+                            <div class="mt-2 button">
+                                <button class="btn btn-success text-white" onclick="update()">Update Profile</button>
+                            </div>
                         </div>
                     </div>
                 </div>

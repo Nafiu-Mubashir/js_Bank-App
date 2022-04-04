@@ -11,4 +11,3 @@ let myLocalStorage = JSON.parse(localStorage.getItem("currentUsers"));
 acctName.innerText = "Welcome back " + myLocalStorage.firstname + " " + myLocalStorage.lastname;
 acctBal.innerHTML = "$" + myLocalStorage.accountBalance + "<sub>USD</sub>";
 acctNo.innerHTML = "Acct No: " +myLocalStorage.acctNum;
-
