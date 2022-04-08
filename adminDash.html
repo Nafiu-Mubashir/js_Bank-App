@@ -12,8 +12,8 @@
     <!-- <link rel="stylesheet" href="fontawesome-free-6.1.1-web/css/fontawesome.css"> -->
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-    <link rel="stylesheet" href="assets/css/dashboard.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="assets/css/adminDash.css">
+    <title>Admin Dashboard</title>
 </head>
 
 <body>
@@ -51,27 +51,6 @@
             </li>
             <li>
                 <a href="#" class="link">
-                    <i class="fa fa-paper-plane"></i>
-                    <span class="links_name"> Transfer</span>
-                </a>
-                <span class="tooltip">Transfer</span>
-            </li>
-            <li>
-                <a href="#" class="link">
-                    <i class="fa fa-coins"></i>
-                    <span class="links_name"> Fund Acct</span>
-                </a>
-                <span class="tooltip">Fund Acct</span>
-            </li>
-            <li>
-                <a href="#" class="link">
-                    <i class="fa fa-wallet"></i>
-                    <span class="links_name"> Withdarw</span>
-                </a>
-                <span class="tooltip">Withdarw</span>
-            </li>
-            <li>
-                <a href="#" class="link">
                     <i class="fa fa-cog"></i>
                     <span class="links_name"> Settings</span>
                 </a>
@@ -85,21 +64,6 @@
                 <span class="tooltip">Logout</span>
             </li>
         </ul>
-        <!-- <div class="profile_content">
-            <div class="profile">
-                <div class="profile-details">
-                    <img src="assets/img/profile/user-bg.jpg" alt="">
-                    <div class="name_job">
-                        <div class="name">Steev Job</div>
-                        <div class="job">Web Designer</div>
-                    </div>
-                </div>
-                <div class="i">
-                    <i class="fa fa-power-off btn" id="logout"></i>
-                    <span class="tooltip">logout</span>
-                </div>
-            </div>
-        </div> -->
     </div>
     <div class="home_content">
         <nav class="navbar navbar-expand-lg navbar-light py-3 sticky-top">
@@ -107,14 +71,76 @@
                 <div class="">
                     <h3 class="text-light">Home content</h3>
                 </div>
-
             </div>
         </nav>
+        
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLongTitle">Edit User</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p class="text-danger" id="errors"></p>
+                                    <div class="d-flex justify-content-between">
+                                        <div class="form-group">
+                                            <input type="text" name="" class="form-control" placeholder="First Name" id="fn" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" name="" class="form-control" placeholder="Last Name" id="ln" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group mt-3">
+                                        <input type="email" name="" class="form-control" placeholder="Email Address" id="em"
+                                            required disabled>
+                                    </div>
+                                    <div class="form-group mt-3">
+                                        <input type="number" name="" class="form-control" placeholder="Phone Number" id="pn"
+                                            required>
+                                    </div>
+                                    <div class="form-group mt-3">
+                                        <select class="form-select" aria-label="Default select example" id="gd">
+                                            <option selected disabled>Gender</option>
+                                            <option value="male">Male</option>
+                                            <option value="female">Female</option>
+                                            <option value="others">Others</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                    <button type="button" class="btn btn-success" onclick="update()">Save changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
         <div class="h-100 p-2">
             <div class="container-fluid">
                 <p class="text-success" id="acctName"></p>
-                <div class=" justify-content-between first_cards">
-                    <div class="cardCardBalance">
+                <div>
+                    <div class="d-flex flex1">
+                        <div class="card w-25">
+                            <div class="card-body">
+                                <p class="texts">Total Number of Admins</p>
+                                <div class="d-flex">
+                                    <i class="fa fa-user text"></i>
+                                    <h3 class="text-center text" id="totals"></h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card w-25 ms-5">
+                            <div class="card-body">
+                                <p class="texts">Total Number of Customers</p>
+                                <div class="d-flex">
+                                    <i class="fa fa-users text"></i>
+                                    <h3 class="text-center text" id="total"></h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card CardBalance mt-3">
                         <div class="card-body">
                             <p class="texts" id="acctNo"></p>
                             <div>
@@ -140,19 +166,27 @@
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Preloader -->
-    <div id="preloader">
-        <div class="loader" id="loader-1"></div>
-    </div>
-    <!-- End Preloader -->
-    <!--================ scripts start =================-->
-    <script src="assets/js/jquery-min.js"></script>
-    <script src="assets/js/jquery.app.js"></script>
-    <script src="assets/js/main.js"></script>
-    <script src="bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/adminDash.js"></script>
+        <!-- Preloader -->
+        <div id="preloader">
+            <div class="loader" id="loader-1"></div>
+        </div>
+        <!-- End Preloader -->
+        <!--================ scripts start =================-->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+        <script src="assets/js/jquery-min.js"></script>
+        <script src="assets/js/jquery.app.js"></script>
+        <script src="assets/js/main.js"></script>
+        <script src="bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/js/adminDash.js"></script>
 </body>
 
 </html>

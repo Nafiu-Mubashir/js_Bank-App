@@ -1,4 +1,3 @@
-let allUsers = [];
 function signUp() {
     let firstName = fn.value;
     let lastName = ln.value;
@@ -6,7 +5,7 @@ function signUp() {
     let gender = gd.value;
     let phoneNum = pn.value;
     let password = ps.value;
-    let Confirm = pss.value;
+    let confirmPassword = pss.value;
     let acctNo = Math.floor(Math.random() * 100000000)
     let users = {
         firstname: firstName,
@@ -17,17 +16,38 @@ function signUp() {
         passwords: password,
         acctNum: "026" + acctNo,
         accountBalance: 5000,
-        category: "Customer"
+        category: "Customer",
+        histories: []
     }
-    if (localStorage.getItem("bankCustomers")) {
-        allUsers = JSON.parse(localStorage.getItem("bankCustomers"))
+    if (fn.value, ln.value, em.value, gd.value, pn.value, ps.value) {
+        //Check password validation here
+        if (password !== confirmPassword) {
+            fail.innerText = "Please check password!";
+            return;
+        }
+        // Checks for existing user in store before saving
+        const ALL_USER = JSON.parse(localStorage.getItem("bankCustomers")); 
+        allUsers = ALL_USER ? ALL_USER : [];
+        let check = allUsers.find((val, _) => val.emails == email);
+        if (check) {
+            fail.innerText = "Email already exist";
+            return;
+        }
+        // Save user if all validation pass
+        allUsers.push(users);
+        console.log(allUsers);
+        all = JSON.stringify(allUsers);
+        localStorage.setItem("bankCustomers", all);
+        firstName = " "
+        lastName = " "
+        email = " "
+        gender = " "
+        phoneNum = " "
+        password = " "
+        confirmPassword = " "
+        location.href = "signIn.html";
     }
     else {
-        allUsers = []
+        fail.innerText = "Please fill the empty fields"
     }
-    allUsers.push(users);
-    console.log(allUsers);
-    all = JSON.stringify(allUsers);
-    localStorage.setItem("bankCustomers", all);
-    location.href = "signIn.html";
 }

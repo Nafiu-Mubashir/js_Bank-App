@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,7 +12,7 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link rel="stylesheet" href="assets/css/transfer.css">
-    <title>Document</title>
+    <title>Dashboard</title>
 </head>
 
 <body>
@@ -36,7 +35,7 @@
                 <span class="tooltip">Dashboard</span>
             </li>
             <li>
-                <a href="#" class="link">
+                <a href="profile.html" class="link">
                     <i class="fa fa-user"></i>
                     <span class="links_name"> Profile</span>
                 </a>
@@ -57,14 +56,14 @@
                 <span class="tooltip">Transfer</span>
             </li>
             <li>
-                <a href="#" class="link">
+                <a href="deposit.html" class="link">
                     <i class="fa fa-coins"></i>
                     <span class="links_name"> Fund Acct</span>
                 </a>
                 <span class="tooltip">Fund Acct</span>
             </li>
             <li>
-                <a href="#" class="link">
+                <a href="withdraw.html" class="link">
                     <i class="fa fa-wallet"></i>
                     <span class="links_name"> Withdarw</span>
                 </a>
@@ -85,21 +84,6 @@
                 <span class="tooltip">Logout</span>
             </li>
         </ul>
-        <!-- <div class="profile_content">
-            <div class="profile">
-                <div class="profile-details">
-                    <img src="assets/img/profile/user-bg.jpg" alt="">
-                    <div class="name_job">
-                        <div class="name">Steev Job</div>
-                        <div class="job">Web Designer</div>
-                    </div>
-                </div>
-                <div class="i">
-                    <i class="fa fa-power-off btn" id="logout"></i>
-                    <span class="tooltip">logout</span>
-                </div>
-            </div>
-        </div> -->
     </div>
     <div class="home_content">
         <nav class="navbar navbar-expand-lg navbar-light py-3 sticky-top">
@@ -121,15 +105,30 @@
                                 <h3>Transfer Here</h3>
                                 <p class="text-center text-danger" id="errors"></p>
                                 <div class="form-group mt-3">
-                                    <input type="number" name="" class="form-control" placeholder="Account Number" id="eml"
-                                        required>
+                                    <input type="text" name="" class="form-control"
+                                        placeholder="User Account Name" id="userAcctName" required disabled>
                                 </div>
                                 <div class="form-group mt-3">
-                                    <input type="number" name="" class="form-control" placeholder="Amount to be trnasfered" id="pwd"
-                                        required>
+                                    <input type="number" name="" class="form-control" placeholder="User Account Number"
+                                        id="userAcctNo" required disabled>
+                                </div>
+                                <div class="form-group mt-3">
+                                    <input type="number" name="" class="form-control"
+                                        placeholder="Beneficiary Account Number" id="recieverAcct" oninput="showNo(event)" required>
+                                </div>
+                                <div class="form-group mt-3">
+                                    <input type="text" name="" class="form-control"
+                                        placeholder="Beneficiary Account Name" id="recieverName" required disabled>
+                                </div>
+                                <div class="form-group mt-3">
+                                    <input type="number" name="" class="form-control"
+                                        placeholder="Amount to be trnasfered" id="amount" required>
                                 </div>
                                 <div class="mt-2 button">
                                     <button class="btn text-white" onclick="transfer()">Transfer</button>
+                                </div>
+                                <div class="mt-2 button">
+                                    <button class="btn text-white" onclick="trans()">Transfer</button>
                                 </div>
                             </div>
                         </div>

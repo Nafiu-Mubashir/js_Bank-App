@@ -230,7 +230,7 @@ body{
     width: calc(100% - 240px);
     left: 240px;
     position: relative;
-    /* z-index: -1; */
+    z-index: -1;
 }
 .navbar{
     background-color: #77D29B !important;
@@ -282,7 +282,7 @@ body{
   
   #loader-1:before {
     z-index: 100;
-    animation: spin .5s infinite;
+    animation: spin 2s infinite;
   }
   
   #loader-1:after {
@@ -325,79 +325,6 @@ body{
     -webkit-animation-name: fadeIn;
     animation-name: fadeIn;
   }
-  .form .btn{
-    border-radius: 35px;
-    height: 45px;
-    width: 150px;
-    background: linear-gradient(90deg, hsl(133, 65%, 51%), hsl(192, 70%, 51%));
-    border: none;
-}
-.form .btn:hover {
-    background: linear-gradient(90deg, hsl(133, 65%, 65%), hsl(192, 70%, 65%));
-}
-form .button{
-    width: 50%;
-    margin: auto;
-}
-  .form-control{
-    box-shadow: .5px .5px 1px 1px #E6E3E7;
-    outline: none;
-    outline-color: #77D29B;
-    border-color: #77D29B;
-}
-.form-control:focus { 
-    outline: none !important;
-    border-color: #77D29B !important;
-    box-shadow: 0 0 0px #77D29B !important;
-}
-.form-control:hover{
-    box-shadow: 0 0 15px #77D29B !important;
-    transition: all 0.3s ease-in-out;
-}
-.card{
-    width: 30%;
-    /* border: none; */
-    color: #77D29B;
-}
-.image{
-    width: 99vw;
-    margin-left: -20px;
-    margin-top: -230px;
-}
-.form-control{
-    border-radius: 35px;
-    box-shadow: 1px 1px #77D29B;
-    outline: none !important;
-    border-color: #77D29B;
-    height: 40px;
-}
-.form-control:focus { 
-    outline: none !important;
-    border-color: #77D29B !important;
-    box-shadow: 0 0 0px #77D29B !important;
-}
-.btn:focus { 
-    outline: none !important;
-    border-color: #77D29B !important;
-    box-shadow: 0 0 5px #77D29B !important;
-}
-.form-control:hover{
-    box-shadow: 0 0 15px #77D29B !important;
-    transition: all 0.3s ease-in-out;
-}
-.logo{
-    width: 20%;
-    display: block;
-    /* margin: auto; */
-}
-.form p{
-    font-size: 12px;
-}
-.form a{
-    text-decoration: none;
-    font-size: 12px;
-    color: #77D29B;
-}
 
 
 @media (max-width: 768px) {
@@ -427,23 +354,16 @@ form .button{
         margin: 12px;
     }
     .sidebar.active ~ .home_content{
-        width: calc(100% - 100%);
-        /* left: 240px; */
+        width: calc(100% - 240px);
+        left: 240px;
         position: relative;
         /* z-index: -1; */
     }
     .d-flex{
         flex-direction: column;
     }
-    .d-flex .card{
-        width: 100% !important;
-        margin-top: 5px;
-    }
     .card{
         width: 100% !important;
-        border: none;
-    }
-    #acctName{
-        font-size: 12px;
+        /* margin-top: 5px; */
     }
 }
