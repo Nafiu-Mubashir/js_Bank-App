@@ -334,6 +334,7 @@ body{
 }
 
 
+
 @media (max-width: 768px) {
     .sidebar.active{
         width: 100%;
@@ -352,7 +353,7 @@ body{
         width: calc(100% - 78px);
         left: 78px;
         transition: all 0.5s ease;
-        z-index: -1;
+        /* z-index: -1; */
     }
     .home_content .text{
         font-size: 25px;
@@ -364,7 +365,7 @@ body{
         width: calc(100% - 240px);
         left: 240px;
         position: relative;
-        z-index: -1;
+        /* z-index: -1; */
     }
     .home_content .text{
         font-size: 10px !important;
@@ -387,5 +388,12 @@ body{
         flex-direction: column;
         margin-left: none !important;
         margin-top: 10px !important;
+    }
+    #acctName{
+        font-size: 12px;
+    }
+    .card2{
+        margin-top: 5px;
+        margin-left: 0px !important;
     }
 }

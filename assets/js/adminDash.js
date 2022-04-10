@@ -37,7 +37,7 @@ else {
             else {
                 total.innerHTML = `${users.length} Customers`;
             }
-            list.innerHTML += `<tr class="text-center"><td>${[i + 1]}</td><td> ${users[i].firstname} </td><td>${users[i].lastname} </td><td> ${users[i].emails} </td><td> ${users[i].genders} </td> <td> ${users[i].acctNum} </td><td> ${users[i].accountBalance} </td><td> ${users[i].phoneNo} </td><td> ${users[i].passwords} </td><td> ${users[i].category} </td><td> <i class="fa fa-edit btn btn-success" data-toggle="modal" data-target="#exampleModalLong" onclick="edit(${i})"></i> </td><td> <i class="fa fa-trash btn btn-danger" onclick="del()"></i></tr>`;
+            list.innerHTML += `<tr class="text-center"><td>${[i + 1]}</td><td> ${users[i].firstname} </td><td>${users[i].lastname} </td><td> ${users[i].emails} </td><td> ${users[i].genders} </td> <td> ${users[i].acctNum} </td><td> ${users[i].accountBalance} </td><td> ${users[i].phoneNo} </td><td> ${users[i].passwords} </td><td> ${users[i].category} </td><td> <i class="fa fa-edit btn btn-success" data-toggle="modal" data-target="#exampleModalLong" onclick="edit(${i})"></i> </td><td> <i class="fa fa-trash btn btn-danger" data-toggle="modal" data-target="#exampleModalLong_2" onclick="del(${i})"></i> </td><td> <i class="fa fa-chart-line btn btn-primary" data-toggle="modal" data-target="#exampleModalLong_3" onclick="trans(${i})"></i> </td></tr>`;
         }
         function edit(i) {
             let editCheck = users.find((val, index) => index == i);
@@ -67,8 +67,27 @@ else {
                 // amount.value = " "   
             }
         }
-        function del() {
-            alert("Delete");
+        function del(i) {
+            let deleteCheck = users.find((val, index) => index == i);
+            console.log(deleteCheck);
+            if (deleteCheck) {
+                me.innerHTML = `Are you sure you want delete <span class="text-success">${deleteCheck.firstname} ${deleteCheck.lastname}</span> profile?`
+            }
+            
+        }
+        function trans(i) {
+            let transCheck = users.find((val, index) => index == i);
+            // console.log(transCheck.histories);
+            if (transCheck.histories) {
+                for (let i = 0; i < transCheck.histories.length; i++) {
+                    const element = transCheck.histories[i];
+                    console.log(element);
+                    transactions.innerHTML += `<tr><td> ${i+1} </td><td> ${element.senderNames} </td><td> ${element.amountSent} </td><td> ${element.recieverNames} </td><td> ${element.time} </td><td> ${element.date} </td></tr>`
+                }
+            }
+        }
+        function loads() {
+            location.reload("adminDash.html")
         }
     }
 }

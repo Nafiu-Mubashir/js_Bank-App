@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.css">
     <!--============== css file ==============-->
     <link rel="stylesheet" href="assets/css/singIn.css">
-    <title>Sign In</title>
+    <title>Admin Login</title>
 </head>
 
 <body>
@@ -38,7 +38,8 @@
             <div class="card m-auto">
                 <div class="card-body">
                     <div class="form">
-                        <h3>Sign In</h3>
+                        <h3>Admin Login</h3>
+                        <p class="text-center text-dark" id="counts"></p>
                         <p class="text-center text-danger" id="errors"></p>
                         <div class="form-group mt-3">
                             <!-- <label for="" class="form-label">Email Address:</label> -->
@@ -52,7 +53,7 @@
                         </div>
                         <p class="text-end text-dark mt-2"><a href="forgot-password.html" class="text">Forget password?</a></p>
                         <div class="mt-2 button">
-                            <button class="btn text-white" onclick="signIn()">Sign In</button>
+                            <button class="btn text-white" id="login" onclick="signIn()">Sign In</button>
                         </div>
                         <p class="text-center text-dark mt-2">Don't have an account? <a href="adminReg.html"
                                 class="text">Create an account</a></p>

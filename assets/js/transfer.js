@@ -28,50 +28,46 @@ else {
         }
     }
     function transfer() {
-        
         let historyLog = {
             recieverNames: recieverName.value,
-            recieverAccts: recieverAcct.value,
-            amountSent: amount.value
+            senderNames: userAcctName.value,
+            amountSent: amount.value,
+            time: new Date().toLocaleTimeString(),
+            date: new Date().toLocaleDateString()
+        }
+        if (recieverAcct.value == userAcctNo.value) {
+            alert("Sorry you can't send money to yourself");
+            return;
         }
         if (recieverName.value == "") {
             errors.innerText = "Account does not exist";
             location.reload("transfer.html");
             return;
         }
+        if (amount.value > myLocalStorage.accountBalance) {
+            alert("Hi");
+            return;
+        }
         for (let i = 0; i < myChecker.length; i++) {
             if (myChecker[i].acctNum == recieverAcct.value) {
                 myChecker[i].accountBalance = +myChecker[i].accountBalance + +amount.value;
                 myLocalStorage.accountBalance = +myLocalStorage.accountBalance + +amount.value;
+                myChecker[i].histories = [...myChecker[i].histories, historyLog]
             }
             if (myChecker[i].acctNum == myLocalStorage.acctNum) {
                 myChecker[i].accountBalance = +myChecker[i].accountBalance - +amount.value;
                 myLocalStorage.accountBalance = +myLocalStorage.accountBalance - +amount.value;
                 // console.log(myChecker[i].histories);
+                myChecker[i].histories = [...myChecker[i].histories, historyLog]
                 if (!confirm("Are you sure you want to proceed")) return;
                 // console.log(myLocalStorage.accountBalance);
             }
-            // for (let j = 0; j < array.length; j++) {
-                //     const element = array[j];
-                
-                // }
-            }
-        // localStorage.setItem('currentUsers', JSON.stringify(myLocalStorage));
-        // localStorage.setItem('bankCustomers', JSON.stringify(myChecker));
+
+        }
+        localStorage.setItem('currentUsers', JSON.stringify(myLocalStorage));
+        localStorage.setItem('bankCustomers', JSON.stringify(myChecker));
         // amount.value = " "
-// +234-01-4480000 GTB
+
+        // +234-01-4480000 GTB
     }
-}
-var details;
-function trans() {
-    let myLocalStorage = JSON.parse(localStorage.getItem("bankCustomers"));
-   for (let index = 0; index < myLocalStorage.length; index++) {
-       const element = myLocalStorage[index].histories;
-        details = element
-   }
-   let ong = {
-       l:'joshua'
-   }
-   details.push(ong)
-   console.log(details)
 }

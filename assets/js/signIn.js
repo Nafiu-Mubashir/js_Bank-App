@@ -10,13 +10,11 @@ function signIn() {
     let myCurrentUser = myLocalStorage.find((val, _) => val.emails == eml.value && val.passwords == pwd.value && val.category == currentUsers.category)
     if (myCurrentUser) {
         all = JSON.stringify(myCurrentUser);
-        console.log(myCurrentUser);
         localStorage.setItem("currentUsers", all);
+        alert(`Login successful ${myCurrentUser.firstname}`)
         location.href = "dashboard.html";
     }
     else {
-        let defaultDate = new Date;
-        let seconds = defaultDate.getSeconds();
         errors.innerText = "Incorrect password or email";
         count++
         console.log(count);
@@ -27,7 +25,7 @@ function signIn() {
             errors.innerText = " "
             var interval = setInterval(() => {
                 counter--;
-                return counts.innerText = `Wait for ${counter} seconds`;
+                return counts.innerText = `Wait for ${counter} seconds and try again`;
             }, 1000)
 
             setTimeout(() => {
@@ -37,7 +35,6 @@ function signIn() {
                 counts.innerText = " ";
                 clearInterval(interval);
             },
-
                 50000)
             return
         }
