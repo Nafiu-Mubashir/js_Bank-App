@@ -9,7 +9,7 @@ body{
     position: relative;
     min-height: 100vh;
     width: 100%;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 .sidebar{
     position: fixed;
@@ -218,7 +218,7 @@ body{
     width: calc(100% - 78px);
     left: 78px;
     transition: all 0.5s ease;
-    z-index: -1;
+    /* z-index: -1; */
 }
 .home_content .text{
     font-size: 25px;
@@ -345,7 +345,7 @@ body{
         width: calc(100% - 78px);
         left: 78px;
         transition: all 0.5s ease;
-        z-index: -1;
+        /* z-index: -1; */
     }
     .home_content .text{
         font-size: 25px;
@@ -359,11 +359,16 @@ body{
         position: relative;
         z-index: -1;
     }
-    .d-flex{
+    .first_cards{
         flex-direction: column;
     }
     .d-flex .card{
         width: 100% !important;
         margin-top: 5px;
     }
+    .texts{
+        color: #77D29B;
+        font-size: 12px;
+    }
+    
 }

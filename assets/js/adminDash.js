@@ -69,10 +69,13 @@ else {
         }
         function del(i) {
             let deleteCheck = users.find((val, index) => index == i);
-            console.log(deleteCheck);
+            // console.log(deleteCheck);
             if (deleteCheck) {
                 me.innerHTML = `Are you sure you want delete <span class="text-success">${deleteCheck.firstname} ${deleteCheck.lastname}</span> profile?`
             }
+            
+        }
+        function dels() {
             
         }
         function trans(i) {
@@ -82,7 +85,7 @@ else {
                 for (let i = 0; i < transCheck.histories.length; i++) {
                     const element = transCheck.histories[i];
                     console.log(element);
-                    transactions.innerHTML += `<tr><td> ${i+1} </td><td> ${element.senderNames} </td><td> ${element.amountSent} </td><td> ${element.recieverNames} </td><td> ${element.time} </td><td> ${element.date} </td></tr>`
+                    transactions.innerHTML += `<tr><td> ${i+1} </td><td> ${element.senderNames} </td><td> ${element.amountSent} </td><td> ${element.recieverNames} </td><td> ${element.time} </td><td> ${element.date} </td></tr>`;
                 }
             }
         }

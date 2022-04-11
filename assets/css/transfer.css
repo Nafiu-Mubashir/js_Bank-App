@@ -9,7 +9,7 @@ body{
     position: relative;
     min-height: 100vh;
     width: 100%;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 .sidebar{
     position: fixed;
@@ -218,7 +218,6 @@ body{
     width: calc(100% - 78px);
     left: 78px;
     transition: all 0.5s ease;
-    /* z-index: -1; */
 }
 .home_content .text{
     font-size: 25px;
@@ -230,7 +229,7 @@ body{
     width: calc(100% - 240px);
     left: 240px;
     position: relative;
-    /* z-index: -1; */
+    z-index: -1;
 }
 .navbar{
     background-color: #77D29B !important;
@@ -430,7 +429,7 @@ form .button{
         width: calc(100% - 100%);
         /* left: 240px; */
         position: relative;
-        /* z-index: -1; */
+        z-index: -1;
     }
     .d-flex{
         flex-direction: column;

@@ -17,7 +17,7 @@ function signIn() {
     else {
         errors.innerText = "Incorrect password or email";
         count++
-        console.log(count);
+        // console.log(count);
         if (count == 3) {
             document.getElementById("login").disabled = true;
             document.getElementById("eml").disabled = true;
@@ -34,6 +34,9 @@ function signIn() {
                 document.getElementById("pwd").disabled = false;
                 counts.innerText = " ";
                 clearInterval(interval);
+                // eml.value = " ";
+                // pwd.value = " ";
+                location.reload("signIn.html");
             },
                 50000)
             return

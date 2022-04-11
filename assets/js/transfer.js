@@ -66,7 +66,8 @@ else {
         }
         localStorage.setItem('currentUsers', JSON.stringify(myLocalStorage));
         localStorage.setItem('bankCustomers', JSON.stringify(myChecker));
-        // amount.value = " "
+        amount.value = " ";
+        recieverAcct.value = " ";
 
         // +234-01-4480000 GTB
     }
