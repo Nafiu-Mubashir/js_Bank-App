@@ -242,7 +242,7 @@ body{
 .first_cards .card{
     height: 25vh;
 }
-.texts{
+.texts, #acctName{
     color: #77D29B;
     font-size: 12px;
 }

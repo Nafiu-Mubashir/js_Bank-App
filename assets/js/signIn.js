@@ -11,7 +11,7 @@ function signIn() {
     if (myCurrentUser) {
         all = JSON.stringify(myCurrentUser);
         localStorage.setItem("currentUsers", all);
-        alert(`Login successful ${myCurrentUser.firstname}`)
+        alert(`Login successful ${myCurrentUser.firstname} ${myCurrentUser.lastname}`)
         location.href = "dashboard.html";
     }
     else {

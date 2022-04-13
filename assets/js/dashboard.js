@@ -1,5 +1,5 @@
 let checkUser = JSON.parse(localStorage.getItem("currentUsers"));
-console.log(checkUser);
+// console.log(checkUser);
 if (checkUser == null) {
   location.href = "signIn.html";
 } else {

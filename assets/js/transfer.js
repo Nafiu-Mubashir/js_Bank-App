@@ -45,29 +45,32 @@ else {
             return;
         }
         if (amount.value > myLocalStorage.accountBalance) {
-            alert("Hi");
+            alert("Sorry!, you did not have sufficient balance for this transcation");
             return;
         }
         for (let i = 0; i < myChecker.length; i++) {
             if (myChecker[i].acctNum == recieverAcct.value) {
                 myChecker[i].accountBalance = +myChecker[i].accountBalance + +amount.value;
-                myLocalStorage.accountBalance = +myLocalStorage.accountBalance + +amount.value;
-                myChecker[i].histories = [...myChecker[i].histories, historyLog]
+                // myLocalStorage.accountBalance = +myLocalStorage.accountBalance + +amount.value;
+                console.log(myChecker[i].accountBalance);
+                console.log(myLocalStorage.accountBalance); 
             }
-            if (myChecker[i].acctNum == myLocalStorage.acctNum) {
+            if (myChecker[i].acctNum == userAcctNo.value) {
                 myChecker[i].accountBalance = +myChecker[i].accountBalance - +amount.value;
                 myLocalStorage.accountBalance = +myLocalStorage.accountBalance - +amount.value;
-                // console.log(myChecker[i].histories);
-                myChecker[i].histories = [...myChecker[i].histories, historyLog]
+                console.log(myChecker[i].accountBalance);
+                console.log(myLocalStorage.accountBalance); 
                 if (!confirm("Are you sure you want to proceed")) return;
-                // console.log(myLocalStorage.accountBalance);
             }
 
-        }
-        localStorage.setItem('currentUsers', JSON.stringify(myLocalStorage));
-        localStorage.setItem('bankCustomers', JSON.stringify(myChecker));
-        amount.value = " ";
-        recieverAcct.value = " ";
+            myChecker[i].histories.transferHistory = [...myChecker[i].histories.transferHistory, historyLog]
+            myLocalStorage.histories.transferHistory = [...myLocalStorage.histories.transferHistory, historyLog]
+                // console.log(myLocalStorage.accountBalance);
+                
+            }
+            localStorage.setItem('currentUsers', JSON.stringify(myLocalStorage));
+            localStorage.setItem('bankCustomers', JSON.stringify(myChecker));
+            amount.value = " ";
 
         // +234-01-4480000 GTB
     }

@@ -11,7 +11,7 @@ function signIn() {
     if (myCurrentUser) {
         all = JSON.stringify(myCurrentUser);
         localStorage.setItem("currentAdmins", all);
-        alert(`Login successful ${myCurrentUser.firstname}`)
+        alert(`Login successful ${myCurrentUser.firstname} ${myCurrentUser.lastname}`)
         location.href = "adminDash.html";
     }
     else {

@@ -19,13 +19,22 @@ else {
     userAcctName.value = `${myLocalStorage.firstname} ${myLocalStorage.lastname}`;
     userAcctNo.value = `${myLocalStorage.acctNum}`
     function deposit() {
+        let historyLog = {
+            DepositorNames: userAcctName.value,
+            amountDeposited: amount.value,
+            time: new Date().toLocaleTimeString(),
+            date: new Date().toLocaleDateString()
+        }
         for (let i = 0; i < myChecker.length; i++) {
             if (myChecker[i].acctNum == myLocalStorage.acctNum) {
                 myChecker[i].accountBalance = +myChecker[i].accountBalance + +amount.value;
                 myLocalStorage.accountBalance = +myLocalStorage.accountBalance + +amount.value;
-                if (!confirm("Are you sure you want to proceed")) return;
                 console.log(myLocalStorage.accountBalance);
+                console.log(myChecker[i].accountBalance);
+                if (!confirm("Are you sure you want to proceed")) return;
             }
+            myChecker[i].histories.depositHistory = [...myChecker[i].histories.depositHistory, historyLog]
+            myLocalStorage.histories.depositHistory = [...myLocalStorage.histories.depositHistory, historyLog]
         }
         localStorage.setItem('currentUsers', JSON.stringify(myLocalStorage));
         localStorage.setItem('bankCustomers', JSON.stringify(myChecker));

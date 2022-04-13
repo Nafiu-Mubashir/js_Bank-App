@@ -1,4 +1,5 @@
 let checkUser = JSON.parse(localStorage.getItem("currentAdmins"))
+var currentId = null;
 // console.log(checkUser)
 if (checkUser == null) {
     location.href = "adminLog.html"
@@ -41,7 +42,7 @@ else {
         }
         function edit(i) {
             let editCheck = users.find((val, index) => index == i);
-            console.log(editCheck);
+            // console.log(editCheck);  
             if (editCheck) {
                 fn.value = editCheck.firstname;
                 ln.value = editCheck.lastname;
@@ -72,15 +73,18 @@ else {
             // console.log(deleteCheck);
             if (deleteCheck) {
                 me.innerHTML = `Are you sure you want delete <span class="text-success">${deleteCheck.firstname} ${deleteCheck.lastname}</span> profile?`
+                currentId = i;
             }
             
         }
         function dels() {
-            
+            let deleteUser = users.filter((val, index) => index != currentId)
+            localStorage.setItem("bankCustomers", JSON.stringify(deleteUser));
+            location.reload("adminDash.html")   
         }
         function trans(i) {
             let transCheck = users.find((val, index) => index == i);
-            // console.log(transCheck.histories);
+            user.innerText = `${transCheck.firstname} ${transCheck.lastname}`
             if (transCheck.histories) {
                 for (let i = 0; i < transCheck.histories.length; i++) {
                     const element = transCheck.histories[i];

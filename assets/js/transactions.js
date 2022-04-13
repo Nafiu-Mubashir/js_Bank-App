@@ -1,4 +1,5 @@
-let checkUser = JSON.parse(localStorage.getItem("currentUsers"))
+let checkUser = JSON.parse(localStorage.getItem("currentUsers"));
+// let myChecker = JSON.parse(localStorage.getItem("bankCustomers"));
 // console.log(checkUser)
 if (checkUser == null) {
     location.href = "signIn.html"
@@ -14,8 +15,6 @@ else {
         location.href = "signIn.html"
     }
     let myLocalStorage = JSON.parse(localStorage.getItem("currentUsers"));
-    // let myChecker = JSON.parse(localStorage.getItem("bankCustomers"));
-    let sender = `${myLocalStorage.firstname} ${myLocalStorage.lastname}`;
     let historyLog = myLocalStorage.histories;
     // console.log(sender);
     for (let i = 0; i < historyLog.length; i++) {
