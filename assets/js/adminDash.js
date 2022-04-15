@@ -85,9 +85,10 @@ else {
         function trans(i) {
             let transCheck = users.find((val, index) => index == i);
             user.innerText = `${transCheck.firstname} ${transCheck.lastname}`
-            if (transCheck.histories) {
-                for (let i = 0; i < transCheck.histories.length; i++) {
-                    const element = transCheck.histories[i];
+            if (transCheck.histories.transferHistory) {
+                console.log();
+                for (let i = 0; i < transCheck.histories.transferHistory.length; i++) {
+                    const element = transCheck.histories.transferHistory[i];
                     console.log(element);
                     transactions.innerHTML += `<tr><td> ${i+1} </td><td> ${element.senderNames} </td><td> ${element.amountSent} </td><td> ${element.recieverNames} </td><td> ${element.time} </td><td> ${element.date} </td></tr>`;
                 }

@@ -17,8 +17,8 @@ else {
     let myLocalStorage = JSON.parse(localStorage.getItem("currentUsers"));
     let historyLog = myLocalStorage.histories;
     // console.log(sender);
-    for (let i = 0; i < historyLog.length; i++) {
-        const element = historyLog[i];
+    for (let i = 0; i < historyLog.transferHistorylength; i++) {
+        const element = historyLog.transferHistory[i];
         list.innerHTML += `<tr class="text-center"><td> ${i+1} </td><td> ${element.senderNames} </td><td> ${element.amountSent} </td><td> ${element.recieverNames} </td><td> ${element.time} </td><td> ${element.date} </td></tr>`;
     }
 }

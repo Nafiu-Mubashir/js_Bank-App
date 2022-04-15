@@ -1,52 +1,43 @@
-let checkUser = JSON.parse(localStorage.getItem("currentUsers"))
-console.log(checkUser)
+let checkUser = JSON.parse(localStorage.getItem("currentUsers"));
+// console.log(checkUser)
 if (checkUser == null) {
-    location.href = "signIn.html"
-}
-else {
+    location.href = "signIn.html";
+} else {
     let btn = document.querySelector("#btn");
     let sidebar = document.querySelector(".sidebar");
     btn.onclick = function () {
-        sidebar.classList.toggle('active')
-    }
+        sidebar.classList.toggle("active");
+    };
+
     function logOut() {
-        localStorage.removeItem('currentUsers');
-        location.href = "signIn.html"
+        localStorage.removeItem("currentUsers");
+        location.href = "signIn.html";
     }
     let myLocalStorage = JSON.parse(localStorage.getItem("currentUsers"));
-    let myChecker = JSON.parse(localStorage.getItem("bankCustomers"))
+    let myChecker = JSON.parse(localStorage.getItem("bankCustomers"));
     acctName.innerText = `Welcome back ${myLocalStorage.firstname} ${myLocalStorage.lastname}`;
     userAcctName.value = `${myLocalStorage.firstname} ${myLocalStorage.lastname}`;
-    userAcctNo.value = `${myLocalStorage.acctNum}`
-    // let historyLog = {
-    //     withdrawal: userAcctName.value,
-    //     amount: amount.value,
-    //     time: new Date().toLocaleTimeString(),
-    //     date: new Date().toLocaleDateString()
-    // }
+    userAcctNo.value = `${myLocalStorage.acctNum}`;
+
     function withdraw() {
         let historyLog = {
             withdrawalNames: userAcctName.value,
             amountWithdraw: amount.value,
             time: new Date().toLocaleTimeString(),
-            date: new Date().toLocaleDateString()
+            date: new Date().toLocaleDateString(),
+        };
+        let acctCheck = myChecker.find((val) => val.acctNum == userAcctNo.value);
+        if (acctCheck) {
+            console.log(acctCheck.acctNum);
+            acctCheck.accountBalance = +acctCheck.accountBalance - +amount.value;
+            console.log(acctCheck.accountBalance);
+            myLocalStorage.accountBalance = +myLocalStorage.accountBalance - +amount.value;
+            if (!confirm("Are you sure you want to proceed")) return;
         }
-        for (let i = 0; i < myChecker.length; i++) {
-            if (myChecker[i].acctNum == myLocalStorage.acctNum) {
-                myChecker[i].accountBalance = +myChecker[i].accountBalance - +amount.value;
-                myLocalStorage.accountBalance = +myLocalStorage.accountBalance - +amount.value;
-                console.log(myLocalStorage.accountBalance);
-                console.log(myChecker[i].accountBalance);
-                // myChecker[i].histories = [...myChecker[i].histories, historyLog]
-                if (!confirm("Are you sure you want to proceed")) return;
-                // console.log(myLocalStorage.accountBalance);
-            }
-            myChecker[i].histories.withdrawHistory = [...myChecker[i].histories.withdrawHistory, historyLog]
-            myLocalStorage.histories.withdrawHistory = [...myLocalStorage.histories.withdrawHistory, historyLog]
-        }
+        acctCheck.histories.withdrawHistory = [...acctCheck.histories.withdrawHistory,historyLog,];
+        myLocalStorage.histories.withdrawHistory = [...myLocalStorage.histories.withdrawHistory,historyLog,];
         localStorage.setItem('currentUsers', JSON.stringify(myLocalStorage));
         localStorage.setItem('bankCustomers', JSON.stringify(myChecker));
-        amount.value = " "
-        
+        amount.value = " ";
     }
 }

@@ -34,6 +34,13 @@ function signUp() {
     const ALL_USER = JSON.parse(localStorage.getItem("bankCustomers"));
     allUsers = ALL_USER ? ALL_USER : [];
     let check = allUsers.find((val, _) => val.emails == email);
+    let regMail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    let test = regMail.test(em.value)
+    //Check email validation here
+    if (test == false) {
+      fail.innerText = "Check your email for correction"
+      return
+    }
     if (check) {
       fail.innerText = "Email already exist";
       return;
