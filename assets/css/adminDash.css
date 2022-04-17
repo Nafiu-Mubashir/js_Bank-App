@@ -332,7 +332,13 @@ body{
 .table thead th{
     font-size: 12px;
 }
-
+.buttons button{
+    font-size: 10px !important;
+    margin-top: 2px !important;
+}
+.list1 .list2 .list3, p{
+    font-size: 12px !important;
+}
 
 
 @media (max-width: 768px) {
@@ -401,5 +407,15 @@ body{
     .card2{
         margin-top: 5px;
         margin-left: 0px !important;
+    }
+    .buttons{
+        flex-direction: column;
+    }
+    .buttons button{
+        font-size: 10px !important;
+        margin-top: 2px !important;
+    }
+    .list1 .list2 .list3, p{
+        font-size: 12px !important;
     }
 }

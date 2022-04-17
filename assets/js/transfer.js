@@ -54,25 +54,25 @@ if (checkUser == null) {
         let receiverCheck = myChecker.find((val) => val.acctNum == recieverAcct.value);
         if (receiverCheck) {
             receiverCheck.accountBalance = +receiverCheck.accountBalance + +amount.value;
-            console.log(receiverCheck.accountBalance);
-            console.log(myLocalStorage.accountBalance);
+            // console.log(receiverCheck.accountBalance);
+            // console.log(myLocalStorage.accountBalance);
         }
         if (senderCheck) {
-            receiverCheck.accountBalance = +receiverCheck.accountBalance - +amount.value;
+            senderCheck.accountBalance = +senderCheck.accountBalance - +amount.value;
             myLocalStorage.accountBalance = +myLocalStorage.accountBalance - +amount.value;
-            console.log(receiverCheck.accountBalance);
-            console.log(myLocalStorage.accountBalance);
+            // console.log(senderCheck.accountBalance);
+            // console.log(myLocalStorage.accountBalance);
             if (!confirm("Are you sure you want to proceed")) return;
         }
 
         receiverCheck.histories.transferHistory = [...receiverCheck.histories.transferHistory, historyLog]
         senderCheck.histories.transferHistory = [...senderCheck.histories.transferHistory, historyLog]
-        console.log(receiverCheck.histories.transferHistory);
+        // console.log(receiverCheck.histories.transferHistory);
         myLocalStorage.histories.transferHistory = [...myLocalStorage.histories.transferHistory, historyLog]
         localStorage.setItem('currentUsers', JSON.stringify(myLocalStorage));
         localStorage.setItem('bankCustomers', JSON.stringify(myChecker));
         amount.value = " ";
-
-        // +234-01-4480000 GTB
+        recieverName.value = " ";
+        recieverAcct.value = " ";
     }
 }

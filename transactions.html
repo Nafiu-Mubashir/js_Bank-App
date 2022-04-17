@@ -98,25 +98,57 @@
         <div class="h-100 p-2">
             <div class="container-fluid">
                 <p class="text-success" id="acctName"></p>
-                <div class="d-flex justify-content-between first_cards">
+                <!-- <div class="d-flex justify-content-between first_cards"> -->
                     <div class="card container-fluid h-auto">
                         <div class="card-body">
-                            <p class="texts" id="acctName"></p>
-                            <div class=" table-responsive">
-                                <table class="table table-stripped align-middle" id="list">
-                                    <thead class="text-center">
-                                        <th>S/N</th>
-                                        <th>Sender</th>
-                                        <th id="colors">Amount</th>
-                                        <th>Reciever</th>
-                                        <th>Time</th>
-                                        <th>Date</th>
-                                    </thead>
-                                </table>
+                            <!-- <p class="texts" id="acctName"></p> -->
+                            <div class="d-flex justify-content-between buttons">
+                                <button class="btn btn-primary" onclick="showTrans()">Transfers Transactions</button>
+                                <button class="btn btn-success" onclick="showDeposits()">Deposit Transactions</button>
+                                <button class="btn btn-danger" onclick="showWith()">Withdraw Transactions</button>
+                            </div>
+                            <div class=" table-responsive mt-5">
+                                <div id="lists1">
+                                    <p class="text-success text-centrer">Transfer Transactions</p>
+                                    <table class="table table-stripped align-middle" id="list1">
+                                        <thead class="text-center">
+                                            <th>S/N</th>
+                                            <th>Sender</th>
+                                            <th>Amount</th>
+                                            <th>Reciever</th>
+                                            <th>Time</th>
+                                            <th>Date</th>
+                                        </thead>
+                                    </table>
+                                </div>
+                                <div id="lists2" hidden>
+                                    <p class="text-success text-centrer">Deposit Transactions</p>
+                                    <table class="table table-stripped align-middle" id="list2">
+                                        <thead class="text-center">
+                                            <th>S/N</th>
+                                            <th>Name</th>
+                                            <th>Amount</th>
+                                            <th>Time</th>
+                                            <th>Date</th>
+                                        </thead>
+                                    </table>
+                                </div>
+                                <div id="lists3"hidden>
+                                    <p class="text-success text-centrer">Withdraw Transactions</p>
+                                    <table class="table table-stripped align-middle" id="list3">
+                                        <thead class="text-center">
+                                            <th>S/N</th>
+                                            <th>Name</th>
+                                            <th>Amount</th>
+                                            <th>Time</th>
+                                            <th>Date</th>
+                                        </thead>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                <!-- </div> -->
             </div>
         </div>
     </div>

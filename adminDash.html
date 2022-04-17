@@ -143,11 +143,55 @@
         <div class="modal fade" id="exampleModalLong_3" tabindex="-1" role="dialog"
             aria-labelledby="exampleModalLongTitle" aria-hidden="true">
             <div class="modal-dialog" role="document">
-                <div class="modal-content">
+                <div class="modal-content  p-2">
                     <div class="modal-header">
                         <h5 class="modal-title text-success" id="exampleModalLongTitle">Transaction detals for <span id="user"></span> </h5>
                     </div>
-                    <div class="modal-body table-responsive">
+                    <div class="d-flex justify-content-between buttons">
+                        <button class="btn btn-primary" onclick="showTrans()">Transfers Transactions</button>
+                        <button class="btn btn-success" onclick="showDeposits()">Deposit Transactions</button>
+                        <button class="btn btn-danger" onclick="showWith()">Withdraw Transactions</button>
+                    </div>
+                    <div class=" table-responsive mt-3">
+                        <div id="lists1">
+                            <p class="text-success text-centrer">Transfer Transactions</p>
+                            <table class="table table-stripped align-middle" id="list1">
+                                <thead class="text-center">
+                                    <th>S/N</th>
+                                    <th>Sender</th>
+                                    <th>Amount</th>
+                                    <th>Reciever</th>
+                                    <th>Time</th>
+                                    <th>Date</th>
+                                </thead>
+                            </table>
+                        </div>
+                        <div id="lists2" hidden>
+                            <p class="text-success text-centrer">Deposit Transactions</p>
+                            <table class="table table-stripped align-middle" id="list2">
+                                <thead class="text-center">
+                                    <th>S/N</th>
+                                    <th>Name</th>
+                                    <th>Amount</th>
+                                    <th>Time</th>
+                                    <th>Date</th>
+                                </thead>
+                            </table>
+                        </div>
+                        <div id="lists3"hidden>
+                            <p class="text-success text-centrer">Withdraw Transactions</p>
+                            <table class="table table-stripped align-middle" id="list3">
+                                <thead class="text-center">
+                                    <th>S/N</th>
+                                    <th>Name</th>
+                                    <th>Amount</th>
+                                    <th>Time</th>
+                                    <th>Date</th>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- <div class="modal-body table-responsive">
                         <table class="table table-stripped table-responsive text-center" id="transactions">
                             <thead>
                                 <th>S/N</th>
@@ -157,9 +201,8 @@
                                 <th>Time</th>
                                 <th>Date</th>
                             </thead>
-                            <!-- <tr class="text-center" ></tr> -->
                         </table>
-                    </div>
+                    </div> -->
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="loads()">Cancel</button>
                         <!-- <button type="button" class="btn btn-danger" onclick="transes()">Delete</button> -->

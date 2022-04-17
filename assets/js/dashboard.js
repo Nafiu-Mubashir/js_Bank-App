@@ -19,6 +19,7 @@ if (checkUser == null) {
   acctBal.innerHTML = `$ ${myLocalStorage.accountBalance} <sub>USD</sub>`;
   acctNo.innerHTML = `Acct No:  ${myLocalStorage.acctNum}`;
 
+
 //   var xValues = [100, 80, 60, 40, 20];
 //   var yValues = [55, 49, 44, 24, 15];
 //   var barColors = ["red", "green", "blue", "orange", "brown"];

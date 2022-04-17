@@ -21,14 +21,14 @@ if (checkUser == null) {
 
     function deposit() {
         let historyLog = {
-            withdrawalNames: userAcctName.value,
-            amountWithdraw: amount.value,
+            depositor: userAcctName.value,
+            amountdeposit: amount.value,
             time: new Date().toLocaleTimeString(),
             date: new Date().toLocaleDateString()
         }
         let acctCheck = myChecker.find((val) => val.acctNum == userAcctNo.value);
         if (acctCheck) {
-            console.log(acctCheck.acctNum)
+            // console.log(acctCheck.acctNum)
             acctCheck.accountBalance = +acctCheck.accountBalance + +amount.value;
             myLocalStorage.accountBalance = +myLocalStorage.accountBalance + +amount.value;
             if (!confirm("Are you sure you want to proceed")) return;

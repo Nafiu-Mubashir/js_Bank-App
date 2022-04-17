@@ -370,5 +370,15 @@ body{
         color: #77D29B;
         font-size: 12px;
     }
+    .buttons{
+        flex-direction: column;
+    }
+    .buttons button{
+        font-size: 10px;
+        margin-top: 2px;
+    }
+    .list1 .list2 .list3, p{
+        font-size: 12px !important;
+    }
     
 }

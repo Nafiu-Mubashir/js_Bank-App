@@ -28,9 +28,9 @@ if (checkUser == null) {
         };
         let acctCheck = myChecker.find((val) => val.acctNum == userAcctNo.value);
         if (acctCheck) {
-            console.log(acctCheck.acctNum);
+            // console.log(acctCheck.acctNum);
             acctCheck.accountBalance = +acctCheck.accountBalance - +amount.value;
-            console.log(acctCheck.accountBalance);
+            // console.log(acctCheck.accountBalance);
             myLocalStorage.accountBalance = +myLocalStorage.accountBalance - +amount.value;
             if (!confirm("Are you sure you want to proceed")) return;
         }
