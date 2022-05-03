@@ -62,6 +62,7 @@ function signUp() {
     phoneNum = " ";
     password = " ";
     confirmPassword = " ";
+    alert("Registration successful");
     location.href = "signIn.html";
   } else {
     fail.innerText = "Please fill the empty fields";

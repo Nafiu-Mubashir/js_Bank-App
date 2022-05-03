@@ -11,10 +11,18 @@
     <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.css">
     <!--============== css file ==============-->
     <link rel="stylesheet" href="assets/css/index.css">
+    <!--============== ajax file ==============-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <title>Home</title>
 </head>
 
 <body>
+    <!-- For loader Animation-->
+    <div class="loader_bg">
+        <div class="loader">
+            <img src="assets/image/logo.svg" alt="" id="img">
+        </div>
+    </div>
     <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 sticky-top">
         <div class="container">
             <a href="#" class="navbar-brand"><img src="assets/image/logo.svg" alt=""></a>
@@ -221,15 +229,18 @@
             </div>
         </div>
     </footer>
-       <!-- Preloader -->
-       <div id="preloader">
+    <!-- Preloader -->
+    <!-- <div id="preloader">
         <div class="loader" id="loader-1"></div>
-      </div>
-      <!-- End Preloader -->
+    </div> -->
+    <!-- End Preloader -->
     <!--================ scripts start =================-->
-    <script src="assets/js/jquery-min.js"></script>
-    <script src="assets/js/jquery.app.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script>
+        // For loader
+        setTimeout(function () {
+            $('.loader_bg').fadeToggle();
+        }, 1000);
+    </script>
     <script src="bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
 </body>
 

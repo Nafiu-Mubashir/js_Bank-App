@@ -16,38 +16,24 @@ if (checkUser == null) {
 
     let myChecker = JSON.parse(localStorage.getItem("bankCustomers"));
     let myLocalStorage = JSON.parse(localStorage.getItem("currentUsers"));
-    console.log(myLocalStorage);
-    fn.value = myLocalStorage.firstname;
-    ln.value = myLocalStorage.lastname;
-    pn.value = myLocalStorage.phoneNo;
-    gd.value = myLocalStorage.genders;
-    em.value = myLocalStorage.emails;
+    let findUser = myChecker.find(val => val.emails == myLocalStorage.emails)
+    // console.log(myLocalStorage);
+    fn.value = findUser.firstname;
+    ln.value = findUser.lastname;
+    pn.value = findUser.phoneNo;
+    gd.value = findUser.genders;
+    em.value = findUser.emails;
+    ems.value = findUser.emails;
 
-    function edit() {
-        for (let i = 0; i < myChecker.length; i++) {
-            if (myChecker[i].emails == em.value) {
-                myChecker[i].firstname = fn.value;
-                myChecker[i].lastname = ln.value;
-                myChecker[i].phoneNo = pn.value;
-                myChecker[i].genders = gd.value;
-                myChecker[i].emails = em.value;
-                // console.log(myChecker[i].passwords);
-            }
-
+    update = () => {
+        if (findUser) {
+            findUser.firstname = fn.value;
+            findUser.lastname = ln.value;
+            findUser.phoneNo = pn.value;
         }
-    }
-
-    function update() {
-        // let findMail = myChecker.find(val => val.emails == em.value);
-        // if (findMail && findMail.passwords == oldps.value) {
-        //     findMail.firstname = fn.value;
-        //     findMail.lastname = ln.value;
-        //     findMail.emails = em.value;
-        //     findMail.phoneNo = pn.value;
-        //     findMail.genders = gd.value;
-        // }
-        // localStorage.setItem('bankCustomers', JSON.stringify(myChecker));
-        // localStorage.setItem('bankCustomers', JSON.stringify(myLocalStorage));
-        // location.reload("profile.html");
+        localStorage.setItem("bankCustomers", JSON.stringify(myChecker))
+        localStorage.setItem("currentUsers", JSON.stringify(myLocalStorage))
+        console.log(myChecker);
+        console.log(myLocalStorage);
     }
 }

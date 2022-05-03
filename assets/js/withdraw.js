@@ -27,12 +27,21 @@ if (checkUser == null) {
             date: new Date().toLocaleDateString(),
         };
         let acctCheck = myChecker.find((val) => val.acctNum == userAcctNo.value);
+        if (amount.value > acctCheck.accountBalance) {
+            alert("Insufficient fund");
+            return;
+        }
+        if (amount.value == "") {
+            alert("Please enter the amount you want to withdraw");
+            return;
+        }
         if (acctCheck) {
             // console.log(acctCheck.acctNum);
             acctCheck.accountBalance = +acctCheck.accountBalance - +amount.value;
             // console.log(acctCheck.accountBalance);
             myLocalStorage.accountBalance = +myLocalStorage.accountBalance - +amount.value;
             if (!confirm("Are you sure you want to proceed")) return;
+            alert(`Your withdraw from your account is successful. \n Thanks for banking with us.`);
         }
         acctCheck.histories.withdrawHistory = [...acctCheck.histories.withdrawHistory,historyLog,];
         myLocalStorage.histories.withdrawHistory = [...myLocalStorage.histories.withdrawHistory,historyLog,];

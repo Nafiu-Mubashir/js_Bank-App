@@ -91,20 +91,23 @@ if (checkUser == null) {
             let transferLog = transCheck.histories.transferHistory;
             let depositLog = transCheck.histories.depositHistory;
             let withdrawLog = transCheck.histories.withdrawHistory;
+            list1.innerHTML = ""
             for (let i = 0; i < transferLog.length; i++) {
-                if (transferLog[i].senderNames == user.innerText) {
-                    list1.innerHTML += `<tr class="text-center"><td>${1+i}</td> <td>${transferLog[i].senderNames}</td> <td class="text-danger">${transferLog[i].amountSent}</td> <td>${transferLog[i].recieverNames}</td> <td>${transferLog[i].time}</td> <td>${transferLog[i].date}</td></tr>`
-                }
-                if (transferLog[i].senderNames != user.innerText) {
-                    list1.innerHTML += `<tr class="text-center"><td>${1+i}</td> <td>${transferLog[i].senderNames}</td> <td class="text-success">${transferLog[i].amountSent}</td> <td>${transferLog[i].recieverNames}</td> <td>${transferLog[i].time}</td> <td>${transferLog[i].date}</td></tr>`
-                }
+                if (transferLog[i].sender) {
+                list1.innerHTML += `<tr class="text-center"><td>${1+i}</td> <td>${transferLog[i].sender}</td> <td class="text-danger">$${transferLog[i].amountSent}</td> <td>${transferLog[i].time}</td> <td>${transferLog[i].date}</td></tr>`
+                
+            }
+            if (transferLog[i].reciever) {
+                list1.innerHTML += `<tr class="text-center"><td>${1+i}</td> <td>${transferLog[i].reciever}</td> <td class="text-success">$${transferLog[i].amountSent}</td> <td>${transferLog[i].time}</td> <td>${transferLog[i].date}</td></tr>`
+                
+            }
             }
             for (let i = 0; i < depositLog.length; i++) {
-                list2.innerHTML += `<tr class="text-center"><td>${1+i}</td> <td>${depositLog[i].depositor}</td> <td class="text-success">${depositLog[i].amountdeposit}</td>  <td>${depositLog[i].time}</td> <td>${depositLog[i].date}</td></tr>`
+                list2.innerHTML += `<tr class="text-center"><td>${1+i}</td> <td>${depositLog[i].depositor}</td> <td class="text-success">$${depositLog[i].amountdeposit}</td>  <td>${depositLog[i].time}</td> <td>${depositLog[i].date}</td></tr>`
 
             }
             for (let i = 0; i < withdrawLog.length; i++) {
-                list3.innerHTML += `<tr class="text-center"><td>${1+i}</td> <td>${withdrawLog[i].withdrawalNames}</td> <td class="text-danger">${withdrawLog[i].amountWithdraw}</td> <td>${withdrawLog[i].time}</td> <td>${withdrawLog[i].date}</td></tr>`
+                list3.innerHTML += `<tr class="text-center"><td>${1+i}</td> <td>${withdrawLog[i].withdrawalNames}</td> <td class="text-danger">$${withdrawLog[i].amountWithdraw}</td> <td>${withdrawLog[i].time}</td> <td>${withdrawLog[i].date}</td></tr>`
             }
         }
 

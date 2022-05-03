@@ -1,5 +1,5 @@
 let checkUser = JSON.parse(localStorage.getItem("currentUsers"))
-console.log(checkUser)
+// console.log(checkUser)
 if (checkUser == null) {
     location.href = "signIn.html"
 } else {
@@ -27,11 +27,16 @@ if (checkUser == null) {
             date: new Date().toLocaleDateString()
         }
         let acctCheck = myChecker.find((val) => val.acctNum == userAcctNo.value);
+        if (amount.value == "") {
+            alert("Please enter the amount you want to deposit");
+            return;
+        }
         if (acctCheck) {
             // console.log(acctCheck.acctNum)
             acctCheck.accountBalance = +acctCheck.accountBalance + +amount.value;
             myLocalStorage.accountBalance = +myLocalStorage.accountBalance + +amount.value;
             if (!confirm("Are you sure you want to proceed")) return;
+            alert(`Your deposit into account is successful. \n Thanks for banking with us.`);
         }
         acctCheck.histories.depositHistory = [...acctCheck.histories.depositHistory, historyLog];
         myLocalStorage.histories.depositHistory = [...myLocalStorage.histories.depositHistory, historyLog];

@@ -16,8 +16,8 @@ if (checkUser == null) {
     let myLocalStorage = JSON.parse(localStorage.getItem("currentUsers"));
     let myChecker = JSON.parse(localStorage.getItem("bankCustomers"));
     acctName.innerText = `Welcome back ${myLocalStorage.firstname} ${myLocalStorage.lastname}`;
-    userAcctName.value = `${myLocalStorage.firstname} ${myLocalStorage.lastname}`;
-    userAcctNo.value = `${myLocalStorage.acctNum}`
+    // userAcctName.value = `${myLocalStorage.firstname} ${myLocalStorage.lastname}`;
+    // userAcctNo.value = `${myLocalStorage.acctNum}`
 
     function showNo(e) {
         let acctNumber = e.target.value;
@@ -28,51 +28,53 @@ if (checkUser == null) {
             // console.log(recieverName.value);
         }
     }
-
     function transfer() {
-        let historyLog = {
-            recieverNames: recieverName.value,
-            senderNames: userAcctName.value,
+        let creditor = {
+            reciever: `${myLocalStorage.firstname} ${myLocalStorage.lastname}`,
             amountSent: amount.value,
             time: new Date().toLocaleTimeString(),
-            date: new Date().toLocaleDateString()
+            date: new Date().toLocaleDateString(),
+            transType: "Credit"
         }
-        if (recieverAcct.value == userAcctNo.value) {
+        let debitor = {
+            sender: recieverName.value,
+            amountSent: amount.value,
+            time: new Date().toLocaleTimeString(),
+            date: new Date().toLocaleDateString(),
+            transType: "Debit"
+        }
+        if (recieverAcct.value == myLocalStorage.acctNum) {
             alert("Sorry you can't send money to yourself");
             return;
         }
         if (recieverName.value == "") {
-            errors.innerText = "Account does not exist";
-            location.reload("transfer.html");
+            alert("Account does not exist");
             return;
         }
         if (amount.value > myLocalStorage.accountBalance) {
             alert("Sorry!, you did not have sufficient balance for this transcation");
             return;
         }
-        let senderCheck = myChecker.find((val) => val.acctNum == userAcctNo.value);
+        let senderCheck = myChecker.find((val) => val.acctNum == myLocalStorage.acctNum);
         let receiverCheck = myChecker.find((val) => val.acctNum == recieverAcct.value);
         if (receiverCheck) {
             receiverCheck.accountBalance = +receiverCheck.accountBalance + +amount.value;
-            // console.log(receiverCheck.accountBalance);
-            // console.log(myLocalStorage.accountBalance);
         }
         if (senderCheck) {
             senderCheck.accountBalance = +senderCheck.accountBalance - +amount.value;
             myLocalStorage.accountBalance = +myLocalStorage.accountBalance - +amount.value;
-            // console.log(senderCheck.accountBalance);
-            // console.log(myLocalStorage.accountBalance);
             if (!confirm("Are you sure you want to proceed")) return;
+            alert(`Your transfer to ${receiverCheck.firstname} ${receiverCheck.lastname} is successful. \n Thanks for banking with us.`);
         }
 
-        receiverCheck.histories.transferHistory = [...receiverCheck.histories.transferHistory, historyLog]
-        senderCheck.histories.transferHistory = [...senderCheck.histories.transferHistory, historyLog]
+        receiverCheck.histories.transferHistory = [...receiverCheck.histories.transferHistory, creditor]
+        senderCheck.histories.transferHistory = [...senderCheck.histories.transferHistory, debitor]
         // console.log(receiverCheck.histories.transferHistory);
-        myLocalStorage.histories.transferHistory = [...myLocalStorage.histories.transferHistory, historyLog]
+        myLocalStorage.histories.transferHistory = [...myLocalStorage.histories.transferHistory, debitor]
         localStorage.setItem('currentUsers', JSON.stringify(myLocalStorage));
         localStorage.setItem('bankCustomers', JSON.stringify(myChecker));
-        amount.value = " ";
-        recieverName.value = " ";
-        recieverAcct.value = " ";
+        amount.value = "";
+        recieverName.value = "";
+        recieverAcct.value = "";
     }
 }
