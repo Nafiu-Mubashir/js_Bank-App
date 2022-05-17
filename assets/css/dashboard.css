@@ -352,10 +352,6 @@ body{
     }
     .charts{
         width:100%;
-        max-width: 600px;
-        /* height: 50vh; */
-        /* max-height: 100vh; */
-        /* display: none; */
       }
      
 }
